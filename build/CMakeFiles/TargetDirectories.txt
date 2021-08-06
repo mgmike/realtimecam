@@ -1,0 +1,3 @@
+/media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles/rebuild_cache.dir
+/media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles/Dishcam.dir
+/media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles/edit_cache.dir
