@@ -15,12 +15,12 @@ private:
     std::mutex quetex;
     std::mutex camtex;
     cv::VideoCapture* capture;
-    std::vector<std::thread*> threads;
+    std::vector<std::thread> threads;
 
-    static void* pc(void* th) {((Threadded_Queue *)th)->probe_cam(); return NULL;}
-    static void* sv(void* th) {((Threadded_Queue *)th)->show_video(); return NULL;}
+    static void* pc(void* th, int thn) {((Threadded_Queue *)th)->probe_cam(thn); return NULL;}
+    static void* sv(void* th, int thn) {((Threadded_Queue *)th)->show_video(thn); return NULL;}
 
-    virtual void probe_cam(){
+    virtual void probe_cam(int thn){
         if (!capture->isOpened()){
             std::cout << "Camera cannot be opened." << '\n';
             return;
@@ -40,7 +40,7 @@ private:
         }
     }
 
-    virtual void show_video(){
+    virtual void show_video(int thn){
         while(true){
             quetex.lock();
             bool is_queue_empty = input_queue.empty();
@@ -51,12 +51,12 @@ private:
                 quetex.unlock();
 
                 cv::imshow("edges", *frame);
-                std::cout << "There are " << queue_size << " frames in the queue." << '\n';
+                std::cout << "There are " << queue_size << " frames in the queue, from thread " << thn << '\n';
                 if(cv::waitKey(1) >= 0){
                     capture->release();
                     return;
                 }
-                
+
                 quetex.lock();
                 input_queue.pop();
                 quetex.unlock();
@@ -69,38 +69,51 @@ private:
     void init(int probe_threads, int show_threads){
         int num_threads = probe_threads + show_threads;
 
-        typedef void * (*THREADFUNCPTR)(void *);
+        std::thread probe_cam_thread1(pc, this,0);
+        std::thread probe_cam_thread2(pc, this,1);
+        std::thread probe_cam_thread3(pc, this,2);
+        std::thread show_video_thread(sv, this,3);
+
+        //std::thread show_cam_thread(show, &capture, camtex, quetex, input_queue, queue_size);
 
 
-        for (int i = 0; i < probe_threads; i++){
-            std::thread probe_cam_thread(pc, this);
-            threads.push_back(&probe_cam_thread);
-            //pthread_create(threads.back(), NULL, pc, this);
-        }
-        for (int i = 0; i < show_threads; i++){
-            std::thread show_video_thread(sv, this);
-            threads.push_back(&show_video_thread);
-            //pthread_create(threads.back(), NULL, sv, this);
-        }
-        
-        std::cout << &(*threads.begin()) << '\n';
+        // for (int i = 0; i < probe_threads; i++){
+        //     try{
+        //         threads.push_back(std::thread(pc, this, i));
+        //     } catch (int err){
+        //         std::cout << "Error thrown." << '\n';
+        //     }
+        // }
+        // for (int i = 0; i < show_threads; i++){
+        //     try{
+        //         threads.push_back(std::thread(sv, this, i));
+        //     } catch (int err){
+        //         std::cout << "Error thrown." << '\n';
+        //     }        
+        // }
 
-        for (auto i = threads.begin(); i != threads.end(); ++i){
-            // pthread_join(**i, NULL);
-            (*i)->join();
-        }
+        // for (std::vector<std::thread>::iterator it = threads.begin(); it != threads.end(); ++it){
+        //     // pthread_join(**i, NULL);
+        //     std::cout << "Thread joined" << '\n';
+        //     if (it->joinable()){
+        //         it->join();
+        //     }
+        // }
+        probe_cam_thread1.join();
+        probe_cam_thread2.join();
+        probe_cam_thread3.join();
+        show_video_thread.join();
     }
 
 public:
 
-    Threadded_Queue(): queue_size(0){}
 
-    Threadded_Queue(cv::VideoCapture* cap, int probe_threads = 1, int show_threads = 1): Threadded_Queue() {
+    Threadded_Queue(cv::VideoCapture* cap, int probe_threads = 1, int show_threads = 1): queue_size(0) {
         capture = cap;
         init(probe_threads, show_threads);
     }
 
-    Threadded_Queue(int id, int probe_threads = 1, int show_threads = 1): Threadded_Queue() {
+    Threadded_Queue(int id = 0, int probe_threads = 1, int show_threads = 1): queue_size(0) {
         cv::VideoCapture cap(id);
         capture = &cap;
         init(probe_threads, show_threads);

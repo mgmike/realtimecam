@@ -9,5 +9,7 @@ using namespace std;
 int main(){
     cv::VideoCapture capture(0);
     capture.set(cv::CAP_PROP_POS_FRAMES, 60);
+    capture.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
+    capture.set(cv::CAP_PROP_FRAME_WIDTH, 640);
     Threadded_Queue tq(&capture, 2, 1);
 }
