@@ -7,9 +7,37 @@
 #include <queue>
 #include <mutex>
 #include <vector>
+#include <chrono>
 
 class Threadded_Queue{
 private:
+
+    // Can only be a type of std::chrono::duration, ie. milliseconds, microseconds, nanoseconds
+    template <typename T>
+    class FPS{
+    private:
+        T _start;
+        T _end;
+        T _last;
+        int num_frames;
+        int _fps;
+        int fps_buffer;
+    public:
+  
+
+        void start(){_start = now();}
+        void stop(){_end = now();}
+        T now(){return std::chrono::duration_cast<T>(std::chrono::system_clock::now().time_since_epoch());}
+        void update(){num_frames++;}
+        T elapsed(){ return _end - _start;}
+        int avg_fps(){return num_frames / elapsed().count();}
+        int fps(){
+            T n = now();
+            
+        }
+        FPS(): num_frames(0), fps_buffer(5) {start(); stop();}
+    };
+
     std::queue<cv::Mat*> input_queue;
     int queue_size;
     std::mutex quetex;
@@ -51,7 +79,6 @@ private:
                 quetex.unlock();
 
                 cv::imshow("edges", *frame);
-                std::cout << "There are " << queue_size << " frames in the queue, from thread " << thn << '\n';
                 if(cv::waitKey(1) >= 0){
                     capture->release();
                     return;
@@ -69,40 +96,38 @@ private:
     void init(int probe_threads, int show_threads){
         int num_threads = probe_threads + show_threads;
 
-        std::thread probe_cam_thread1(pc, this,0);
-        std::thread probe_cam_thread2(pc, this,1);
-        std::thread probe_cam_thread3(pc, this,2);
-        std::thread show_video_thread(sv, this,3);
-
-        //std::thread show_cam_thread(show, &capture, camtex, quetex, input_queue, queue_size);
+        // std::thread probe_cam_thread1(pc, this,0);
+        // std::thread probe_cam_thread2(pc, this,1);
+        // std::thread probe_cam_thread3(pc, this,2);
+        // std::thread show_video_thread(sv, this,3);
 
 
-        // for (int i = 0; i < probe_threads; i++){
-        //     try{
-        //         threads.push_back(std::thread(pc, this, i));
-        //     } catch (int err){
-        //         std::cout << "Error thrown." << '\n';
-        //     }
-        // }
-        // for (int i = 0; i < show_threads; i++){
-        //     try{
-        //         threads.push_back(std::thread(sv, this, i));
-        //     } catch (int err){
-        //         std::cout << "Error thrown." << '\n';
-        //     }        
-        // }
+        for (int i = 0; i < probe_threads; i++){
+            try{
+                threads.push_back(std::thread(pc, this, i));
+            } catch (int err){
+                std::cout << "Error creating thread." << '\n';
+            }
+        }
+        for (int i = 0; i < show_threads; i++){
+            try{
+                threads.push_back(std::thread(sv, this, i + probe_threads));
+            } catch (int err){
+                std::cout << "Error creating thread." << '\n';
+            }        
+        }
 
-        // for (std::vector<std::thread>::iterator it = threads.begin(); it != threads.end(); ++it){
-        //     // pthread_join(**i, NULL);
-        //     std::cout << "Thread joined" << '\n';
-        //     if (it->joinable()){
-        //         it->join();
-        //     }
-        // }
-        probe_cam_thread1.join();
-        probe_cam_thread2.join();
-        probe_cam_thread3.join();
-        show_video_thread.join();
+        for (auto& it : threads){
+            // pthread_join(**i, NULL);
+            std::cout << "Thread joined" << '\n';
+            if (it.joinable()){
+                it.join();
+            }
+        }
+        // probe_cam_thread1.join();
+        // probe_cam_thread2.join();
+        // probe_cam_thread3.join();
+        // show_video_thread.join();
     }
 
 public:

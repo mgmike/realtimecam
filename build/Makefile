@@ -48,7 +48,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/mike/Storage/Documents/dishcam/cpp_proj
+CMAKE_SOURCE_DIR = /media/mike/Storage/Documents/dishcam/cpp_proj/src
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /media/mike/Storage/Documents/dishcam/cpp_proj/build
@@ -123,59 +123,86 @@ Dishcam/fast:
 	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/build
 .PHONY : Dishcam/fast
 
-src/ThreaddedQueue.o: src/ThreaddedQueue.cpp.o
+ThreaddedQueue.o: ThreaddedQueue.cpp.o
 
-.PHONY : src/ThreaddedQueue.o
-
-# target to build an object file
-src/ThreaddedQueue.cpp.o:
-	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o
-.PHONY : src/ThreaddedQueue.cpp.o
-
-src/ThreaddedQueue.i: src/ThreaddedQueue.cpp.i
-
-.PHONY : src/ThreaddedQueue.i
-
-# target to preprocess a source file
-src/ThreaddedQueue.cpp.i:
-	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.i
-.PHONY : src/ThreaddedQueue.cpp.i
-
-src/ThreaddedQueue.s: src/ThreaddedQueue.cpp.s
-
-.PHONY : src/ThreaddedQueue.s
-
-# target to generate assembly for a file
-src/ThreaddedQueue.cpp.s:
-	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.s
-.PHONY : src/ThreaddedQueue.cpp.s
-
-src/main.o: src/main.cpp.o
-
-.PHONY : src/main.o
+.PHONY : ThreaddedQueue.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+ThreaddedQueue.cpp.o:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o
+.PHONY : ThreaddedQueue.cpp.o
 
-src/main.i: src/main.cpp.i
+ThreaddedQueue.i: ThreaddedQueue.cpp.i
 
-.PHONY : src/main.i
+.PHONY : ThreaddedQueue.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+ThreaddedQueue.cpp.i:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.i
+.PHONY : ThreaddedQueue.cpp.i
 
-src/main.s: src/main.cpp.s
+ThreaddedQueue.s: ThreaddedQueue.cpp.s
 
-.PHONY : src/main.s
+.PHONY : ThreaddedQueue.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+ThreaddedQueue.cpp.s:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.s
+.PHONY : ThreaddedQueue.cpp.s
+
+Yolo.o: Yolo.cpp.o
+
+.PHONY : Yolo.o
+
+# target to build an object file
+Yolo.cpp.o:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/Yolo.cpp.o
+.PHONY : Yolo.cpp.o
+
+Yolo.i: Yolo.cpp.i
+
+.PHONY : Yolo.i
+
+# target to preprocess a source file
+Yolo.cpp.i:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/Yolo.cpp.i
+.PHONY : Yolo.cpp.i
+
+Yolo.s: Yolo.cpp.s
+
+.PHONY : Yolo.s
+
+# target to generate assembly for a file
+Yolo.cpp.s:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/Yolo.cpp.s
+.PHONY : Yolo.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -186,12 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Dishcam"
 	@echo "... edit_cache"
-	@echo "... src/ThreaddedQueue.o"
-	@echo "... src/ThreaddedQueue.i"
-	@echo "... src/ThreaddedQueue.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... ThreaddedQueue.o"
+	@echo "... ThreaddedQueue.i"
+	@echo "... ThreaddedQueue.s"
+	@echo "... Yolo.o"
+	@echo "... Yolo.i"
+	@echo "... Yolo.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

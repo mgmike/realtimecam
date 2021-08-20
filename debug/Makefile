@@ -150,6 +150,33 @@ src/ThreaddedQueue.cpp.s:
 	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.s
 .PHONY : src/ThreaddedQueue.cpp.s
 
+src/Yolo.o: src/Yolo.cpp.o
+
+.PHONY : src/Yolo.o
+
+# target to build an object file
+src/Yolo.cpp.o:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/Yolo.cpp.o
+.PHONY : src/Yolo.cpp.o
+
+src/Yolo.i: src/Yolo.cpp.i
+
+.PHONY : src/Yolo.i
+
+# target to preprocess a source file
+src/Yolo.cpp.i:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/Yolo.cpp.i
+.PHONY : src/Yolo.cpp.i
+
+src/Yolo.s: src/Yolo.cpp.s
+
+.PHONY : src/Yolo.s
+
+# target to generate assembly for a file
+src/Yolo.cpp.s:
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/Yolo.cpp.s
+.PHONY : src/Yolo.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... src/ThreaddedQueue.o"
 	@echo "... src/ThreaddedQueue.i"
 	@echo "... src/ThreaddedQueue.s"
+	@echo "... src/Yolo.o"
+	@echo "... src/Yolo.i"
+	@echo "... src/Yolo.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

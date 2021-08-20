@@ -1,4 +1,4 @@
-# Install script for directory: /media/mike/Storage/Documents/dishcam/cpp_proj
+# Install script for directory: /media/mike/Storage/Documents/dishcam/cpp_proj/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

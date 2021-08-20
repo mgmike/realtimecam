@@ -6,5 +6,5 @@ CXX_FLAGS =   -pthread -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /usr/local/include/opencv4 
+CXX_INCLUDES = -I/media/mike/Storage/Documents/dishcam/cpp_proj/build 
 

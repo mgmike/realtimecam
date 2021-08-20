@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Dishcam.dir/src/main.cpp.o"
-  "CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o"
+  "CMakeFiles/Dishcam.dir/main.cpp.o"
+  "CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o"
+  "CMakeFiles/Dishcam.dir/Yolo.cpp.o"
   "Dishcam.pdb"
   "Dishcam"
 )

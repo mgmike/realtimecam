@@ -43,7 +43,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/mike/Storage/Documents/dishcam/cpp_proj
+CMAKE_SOURCE_DIR = /media/mike/Storage/Documents/dishcam/cpp_proj/src
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /media/mike/Storage/Documents/dishcam/cpp_proj/build
@@ -57,72 +57,103 @@ include CMakeFiles/Dishcam.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Dishcam.dir/flags.make
 
-CMakeFiles/Dishcam.dir/src/main.cpp.o: CMakeFiles/Dishcam.dir/flags.make
-CMakeFiles/Dishcam.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Dishcam.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Dishcam.dir/src/main.cpp.o -c /media/mike/Storage/Documents/dishcam/cpp_proj/src/main.cpp
+CMakeFiles/Dishcam.dir/main.cpp.o: CMakeFiles/Dishcam.dir/flags.make
+CMakeFiles/Dishcam.dir/main.cpp.o: /media/mike/Storage/Documents/dishcam/cpp_proj/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Dishcam.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Dishcam.dir/main.cpp.o -c /media/mike/Storage/Documents/dishcam/cpp_proj/src/main.cpp
 
-CMakeFiles/Dishcam.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Dishcam.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/mike/Storage/Documents/dishcam/cpp_proj/src/main.cpp > CMakeFiles/Dishcam.dir/src/main.cpp.i
+CMakeFiles/Dishcam.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Dishcam.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/mike/Storage/Documents/dishcam/cpp_proj/src/main.cpp > CMakeFiles/Dishcam.dir/main.cpp.i
 
-CMakeFiles/Dishcam.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Dishcam.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/mike/Storage/Documents/dishcam/cpp_proj/src/main.cpp -o CMakeFiles/Dishcam.dir/src/main.cpp.s
+CMakeFiles/Dishcam.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Dishcam.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/mike/Storage/Documents/dishcam/cpp_proj/src/main.cpp -o CMakeFiles/Dishcam.dir/main.cpp.s
 
-CMakeFiles/Dishcam.dir/src/main.cpp.o.requires:
+CMakeFiles/Dishcam.dir/main.cpp.o.requires:
 
-.PHONY : CMakeFiles/Dishcam.dir/src/main.cpp.o.requires
+.PHONY : CMakeFiles/Dishcam.dir/main.cpp.o.requires
 
-CMakeFiles/Dishcam.dir/src/main.cpp.o.provides: CMakeFiles/Dishcam.dir/src/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/main.cpp.o.provides.build
-.PHONY : CMakeFiles/Dishcam.dir/src/main.cpp.o.provides
+CMakeFiles/Dishcam.dir/main.cpp.o.provides: CMakeFiles/Dishcam.dir/main.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/main.cpp.o.provides.build
+.PHONY : CMakeFiles/Dishcam.dir/main.cpp.o.provides
 
-CMakeFiles/Dishcam.dir/src/main.cpp.o.provides.build: CMakeFiles/Dishcam.dir/src/main.cpp.o
+CMakeFiles/Dishcam.dir/main.cpp.o.provides.build: CMakeFiles/Dishcam.dir/main.cpp.o
 
 
-CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o: CMakeFiles/Dishcam.dir/flags.make
-CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o: ../src/ThreaddedQueue.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o -c /media/mike/Storage/Documents/dishcam/cpp_proj/src/ThreaddedQueue.cpp
+CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o: CMakeFiles/Dishcam.dir/flags.make
+CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o: /media/mike/Storage/Documents/dishcam/cpp_proj/src/ThreaddedQueue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o -c /media/mike/Storage/Documents/dishcam/cpp_proj/src/ThreaddedQueue.cpp
 
-CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/mike/Storage/Documents/dishcam/cpp_proj/src/ThreaddedQueue.cpp > CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.i
+CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/mike/Storage/Documents/dishcam/cpp_proj/src/ThreaddedQueue.cpp > CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.i
 
-CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/mike/Storage/Documents/dishcam/cpp_proj/src/ThreaddedQueue.cpp -o CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.s
+CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/mike/Storage/Documents/dishcam/cpp_proj/src/ThreaddedQueue.cpp -o CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.s
 
-CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o.requires:
+CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o.requires:
 
-.PHONY : CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o.requires
+.PHONY : CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o.requires
 
-CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o.provides: CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o.provides.build
-.PHONY : CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o.provides
+CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o.provides: CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o.provides.build
+.PHONY : CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o.provides
 
-CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o.provides.build: CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o
+CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o.provides.build: CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o
+
+
+CMakeFiles/Dishcam.dir/Yolo.cpp.o: CMakeFiles/Dishcam.dir/flags.make
+CMakeFiles/Dishcam.dir/Yolo.cpp.o: /media/mike/Storage/Documents/dishcam/cpp_proj/src/Yolo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Dishcam.dir/Yolo.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Dishcam.dir/Yolo.cpp.o -c /media/mike/Storage/Documents/dishcam/cpp_proj/src/Yolo.cpp
+
+CMakeFiles/Dishcam.dir/Yolo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Dishcam.dir/Yolo.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/mike/Storage/Documents/dishcam/cpp_proj/src/Yolo.cpp > CMakeFiles/Dishcam.dir/Yolo.cpp.i
+
+CMakeFiles/Dishcam.dir/Yolo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Dishcam.dir/Yolo.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/mike/Storage/Documents/dishcam/cpp_proj/src/Yolo.cpp -o CMakeFiles/Dishcam.dir/Yolo.cpp.s
+
+CMakeFiles/Dishcam.dir/Yolo.cpp.o.requires:
+
+.PHONY : CMakeFiles/Dishcam.dir/Yolo.cpp.o.requires
+
+CMakeFiles/Dishcam.dir/Yolo.cpp.o.provides: CMakeFiles/Dishcam.dir/Yolo.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Dishcam.dir/build.make CMakeFiles/Dishcam.dir/Yolo.cpp.o.provides.build
+.PHONY : CMakeFiles/Dishcam.dir/Yolo.cpp.o.provides
+
+CMakeFiles/Dishcam.dir/Yolo.cpp.o.provides.build: CMakeFiles/Dishcam.dir/Yolo.cpp.o
 
 
 # Object files for target Dishcam
 Dishcam_OBJECTS = \
-"CMakeFiles/Dishcam.dir/src/main.cpp.o" \
-"CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o"
+"CMakeFiles/Dishcam.dir/main.cpp.o" \
+"CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o" \
+"CMakeFiles/Dishcam.dir/Yolo.cpp.o"
 
 # External object files for target Dishcam
 Dishcam_EXTERNAL_OBJECTS =
 
-Dishcam: CMakeFiles/Dishcam.dir/src/main.cpp.o
-Dishcam: CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o
+Dishcam: CMakeFiles/Dishcam.dir/main.cpp.o
+Dishcam: CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o
+Dishcam: CMakeFiles/Dishcam.dir/Yolo.cpp.o
 Dishcam: CMakeFiles/Dishcam.dir/build.make
 Dishcam: /usr/local/lib/libopencv_gapi.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_stitching.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_alphamat.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_aruco.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_barcode.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_bgsegm.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_bioinspired.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_ccalib.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudabgsegm.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudafeatures2d.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudaobjdetect.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudastereo.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_dnn_objdetect.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_dnn_superres.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_dpm.so.4.5.3
@@ -146,6 +177,7 @@ Dishcam: /usr/local/lib/libopencv_superres.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_surface_matching.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_tracking.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_videostab.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_viz.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_wechat_qrcode.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_xfeatures2d.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_xobjdetect.so.4.5.3
@@ -157,10 +189,14 @@ Dishcam: /usr/local/lib/libopencv_plot.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_text.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_ml.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_phase_unwrapping.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudacodec.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_videoio.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudaoptflow.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudalegacy.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudawarping.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_optflow.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_ximgproc.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_video.so.4.5.3
-Dishcam: /usr/local/lib/libopencv_videoio.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_dnn.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_imgcodecs.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_objdetect.so.4.5.3
@@ -168,10 +204,14 @@ Dishcam: /usr/local/lib/libopencv_calib3d.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_features2d.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_flann.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_photo.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudaimgproc.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudafilters.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_imgproc.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudaarithm.so.4.5.3
 Dishcam: /usr/local/lib/libopencv_core.so.4.5.3
+Dishcam: /usr/local/lib/libopencv_cudev.so.4.5.3
 Dishcam: CMakeFiles/Dishcam.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Dishcam"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Dishcam"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Dishcam.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -179,8 +219,9 @@ CMakeFiles/Dishcam.dir/build: Dishcam
 
 .PHONY : CMakeFiles/Dishcam.dir/build
 
-CMakeFiles/Dishcam.dir/requires: CMakeFiles/Dishcam.dir/src/main.cpp.o.requires
-CMakeFiles/Dishcam.dir/requires: CMakeFiles/Dishcam.dir/src/ThreaddedQueue.cpp.o.requires
+CMakeFiles/Dishcam.dir/requires: CMakeFiles/Dishcam.dir/main.cpp.o.requires
+CMakeFiles/Dishcam.dir/requires: CMakeFiles/Dishcam.dir/ThreaddedQueue.cpp.o.requires
+CMakeFiles/Dishcam.dir/requires: CMakeFiles/Dishcam.dir/Yolo.cpp.o.requires
 
 .PHONY : CMakeFiles/Dishcam.dir/requires
 
@@ -189,6 +230,6 @@ CMakeFiles/Dishcam.dir/clean:
 .PHONY : CMakeFiles/Dishcam.dir/clean
 
 CMakeFiles/Dishcam.dir/depend:
-	cd /media/mike/Storage/Documents/dishcam/cpp_proj/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/mike/Storage/Documents/dishcam/cpp_proj /media/mike/Storage/Documents/dishcam/cpp_proj /media/mike/Storage/Documents/dishcam/cpp_proj/build /media/mike/Storage/Documents/dishcam/cpp_proj/build /media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles/Dishcam.dir/DependInfo.cmake --color=$(COLOR)
+	cd /media/mike/Storage/Documents/dishcam/cpp_proj/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/mike/Storage/Documents/dishcam/cpp_proj/src /media/mike/Storage/Documents/dishcam/cpp_proj/src /media/mike/Storage/Documents/dishcam/cpp_proj/build /media/mike/Storage/Documents/dishcam/cpp_proj/build /media/mike/Storage/Documents/dishcam/cpp_proj/build/CMakeFiles/Dishcam.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Dishcam.dir/depend
 

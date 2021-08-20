@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.2/CMakeCCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
+  "../src/DishcamConfig.h.in"
   "/usr/local/lib/cmake/opencv4/OpenCVConfig-version.cmake"
   "/usr/local/lib/cmake/opencv4/OpenCVConfig.cmake"
   "/usr/local/lib/cmake/opencv4/OpenCVModules-release.cmake"
@@ -29,6 +30,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.10/Modules/Compiler/GNU-C.cmake"
   "/usr/share/cmake-3.10/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake-3.10/Modules/Compiler/GNU.cmake"
+  "/usr/share/cmake-3.10/Modules/FindCUDA.cmake"
+  "/usr/share/cmake-3.10/Modules/FindCUDA/select_compute_arch.cmake"
   "/usr/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake"
   "/usr/share/cmake-3.10/Modules/FindPackageMessage.cmake"
   "/usr/share/cmake-3.10/Modules/FindThreads.cmake"
@@ -47,6 +50,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
+  "src/DishcamConfig.h"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
