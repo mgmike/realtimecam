@@ -98,20 +98,19 @@ private:
 
 public:
     Yolo(){
-    // Load class names
+        std::string ycfg = "/media/mike/Storage/Documents/dishcam/cpp_proj/src/yolov3.cfg";
+        std::string ywei = "/media/mike/Storage/Documents/dishcam/cpp_proj/src/yolov3.weights";
+        cv::dnn::Net temp_net = cv::dnn::readNetFromDarknet(ycfg, ywei);
+        net = &temp_net;
+        //cv::cuda::printCudaDeviceInfo(0);
+        net->setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
+        net->setPreferableTarget(cv::dnn::DNN_TARGET_CUDA);
+
+        // Load class names
         std::string classesFile = "coco.names";
         std::ifstream ifs(classesFile.c_str());
         std::string line;
         while (std::getline(ifs, line)) classes.push_back(line);
-
-        std::string ycfg = "/media/mike/Storage/Documents/dishcam/cpp_proj/src/yolov3.cfg";
-        std::string ywei = "/media/mike/Storage/Documents/dishcam/cpp_proj/src/yolov3.weights";
-        cv::dnn::Net temp_net = cv::dnn::readNetFromDarknet(ycfg, ywei);
-        cv::dnn::Net* net = &temp_net;
-
-        //cv::cuda::printCudaDeviceInfo(0);
-        net->setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
-        net->setPreferableTarget(cv::dnn::DNN_TARGET_CUDA);
     }
 
     Yolo(cv::dnn::Net* input_net): net(input_net){} 
@@ -120,8 +119,17 @@ public:
     void test(cv::Mat* frame){}
 
     std::vector<cv::Mat>& predict(cv::Mat& frame, bool verbose = false){
+        //cv::Mat blob;
+        //cv::dnn::blobFromImage(frame, blob, 1/255.0, cv::Size(inpWidth, inpHeight), cv::Scalar(0,0,0), true, false);
         cv::Mat blob = cv::dnn::blobFromImage(frame, 1/255.0, cv::Size(inpWidth, inpHeight), cv::Scalar(0,0,0), true, false);
 
+
+        if (verbose){
+            cv::imshow("Temp", frame);
+            cv::waitKey(0);
+        }
+
+        // Sets input to network
         net->setInput(blob);
 
         // Runs forward pass to get output of output layers
@@ -140,7 +148,6 @@ public:
         // Write the frame with the detection 
         cv::Mat detectedFrame;
         frame.convertTo(detectedFrame, CV_8U);
-
         if (verbose){
             cv::imshow("Prediction", frame);
             cv::waitKey(0);

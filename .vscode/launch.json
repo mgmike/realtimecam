@@ -9,6 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceRoot}/debug/Dishcam",
+            "localRoot": "${workspaceRoot}",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
