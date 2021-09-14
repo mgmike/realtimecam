@@ -1,4 +1,3 @@
-
 #include <tbb/concurrent_queue.h>
 #include <opencv2/highgui.hpp>
 #include <fstream>
@@ -8,6 +7,7 @@
 //Make sure to include lpthread
 using namespace std;
 using namespace cv;
+
 
 double confThreshold = 0.5;
 double nmsThreshold = 0.4;
@@ -26,7 +26,7 @@ void drawPred(int classId, float conf, int left, int top, int right, int bottom,
 
 void test(){
 
-    cv::Mat frame = cv::imread("/media/mike/Storage/Documents/dishcam/cpp_proj/src/bird.jpg");
+    //cv::Mat frame = cv::imread("/media/mike/Storage/Documents/dishcam/cpp_proj/src/bird.jpg");
 
     // Load class names
     std::string classesFile = "coco.names";
@@ -39,36 +39,47 @@ void test(){
     cv::dnn::Net temp_net = cv::dnn::readNetFromDarknet(ycfg, ywei);
     cv::dnn::Net* net = &temp_net;
 
+    // Put efficiency information. The function getPerfProfile returns the overall time for inference(t) and the timings of each of the layers(in layersTimers)
+    // std::vector<double> layersTimes;
+    // double freq = cv::getTickFrequency() / 1000;
+    // double t = net->getPerfProfile(layersTimes) / freq;
+    std::string label = cv::format("Inference time for a frame : .2f ms");
+
+    //open video capture device
+    cv::VideoCapture cap(0);
+
+
+
     //cv::cuda::printCudaDeviceInfo(0);
     net->setPreferableBackend(cv::dnn::DNN_BACKEND_CUDA);
     net->setPreferableTarget(cv::dnn::DNN_TARGET_CUDA);
 
-    cv::Mat blob = cv::dnn::blobFromImage(frame, 1/255.0, cv::Size(inpWidth, inpHeight), cv::Scalar(0,0,0), true, false);
+    cv::Mat frame, blob;
 
-    // cv::imshow("Temp", frame);
-    // cv::waitKey(0);
+    while (true){
+        cap >> frame;
 
-    net->setInput(blob);
+        blob = cv::dnn::blobFromImage(frame, 1/255.0, cv::Size(inpWidth, inpHeight), cv::Scalar(0,0,0), true, false);
 
-    // Runs forward pass to get output of output layers
-    std::vector<cv::Mat> outputs;
-    net->forward(outputs, getOutputsNames(*net));
+        net->setInput(blob);
 
-    postprocess(frame, outputs);
+        // Runs forward pass to get output of output layers
+        std::vector<cv::Mat> outputs;
+        net->forward(outputs, getOutputsNames(*net));
 
-    // Put efficiency information. The function getPerfProfile returns the overall time for inference(t) and the timings of each of the layers(in layersTimers)
-    std::vector<double> layersTimes;
-    double freq = cv::getTickFrequency() / 1000;
-    double t = net->getPerfProfile(layersTimes) / freq;
-    std::string label = cv::format("Inference time for a frame : %.2f ms", t);
-    cv::putText(frame, label, cv::Point(0, 15), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 255));
+        postprocess(frame, outputs);
 
-    // Write the frame with the detection 
-    cv::Mat detectedFrame;
-    frame.convertTo(detectedFrame, CV_8U);
 
-    cv::imshow("Prediction", frame);
-    cv::waitKey(0);
+        cv::putText(frame, label, cv::Point(0, 15), cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 255));
+
+        // Write the frame with the detection 
+        cv::Mat detectedFrame;
+        frame.convertTo(detectedFrame, CV_8U);
+
+        cv::imshow("Prediction", frame);
+        if(cv::waitKey(30) >= 0) break;
+    }
+    return;
 }
 
 void yoloSetup(){
@@ -89,7 +100,9 @@ int main(){
 
     cout << CV_VERSION << '\n';
 
-    yoloSetup();
+    //yoloSetup();
+
+    test();
 
     return 0;
 }
